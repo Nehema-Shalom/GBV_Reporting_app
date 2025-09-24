@@ -6,7 +6,6 @@ from datetime import datetime
 st.set_page_config(page_title="Gender-Based Violence Reporting App", layout="centered")
 
 # --- UI elements and styling ---
-# Updated CSS with more stable selectors to ensure styling works across Streamlit versions
 st.markdown("""
 <style>
     /* General body and container styling */
@@ -103,9 +102,8 @@ with st.form("report_form", clear_on_submit=True):
     submitted = st.form_submit_button("Submit Report")
 
     if submitted:
-        # Here's where a real-world application would save data to a database.
         # This is a placeholder for demonstration purposes.
-        # In a real app, you would use a secure database like Firestore.
+       
         report_data = {
             "name": name if name else "Anonymous",
             "contact_info": contact_info,
@@ -116,10 +114,6 @@ with st.form("report_form", clear_on_submit=True):
             "description": description,
             "timestamp": datetime.now()
         }
-        
-        # In a real app, you would add logic here to save the report_data to a database.
-        # For example:
-        # firestore_client.collection('reports').add(report_data)
 
         st.success("Thank you for your report. It has been submitted securely.")
         st.info("Please note: For immediate help, contact your local emergency services or a national helpline.")
